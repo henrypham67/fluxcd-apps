@@ -2,7 +2,7 @@ apiVersion: cluster.x-k8s.io/v1beta1
 kind: Cluster
 metadata:
   name: capi-quickstart
-  namespace: flux-system
+  namespace: capa-system
 spec:
   clusterNetwork:
     pods:
@@ -21,14 +21,14 @@ apiVersion: infrastructure.cluster.x-k8s.io/v1beta2
 kind: AWSManagedCluster
 metadata:
   name: capi-quickstart
-  namespace: flux-system
+  namespace: capa-system
 spec: {}
 ---
 apiVersion: controlplane.cluster.x-k8s.io/v1beta2
 kind: AWSManagedControlPlane
 metadata:
   name: capi-quickstart-control-plane
-  namespace: flux-system
+  namespace: capa-system
 spec:
   region: us-west-2
   sshKeyName: default
@@ -38,7 +38,7 @@ apiVersion: cluster.x-k8s.io/v1beta1
 kind: MachineDeployment
 metadata:
   name: capi-quickstart-md-0
-  namespace: flux-system
+  namespace: capa-system
 spec:
   clusterName: capi-quickstart
   replicas: 1
@@ -62,7 +62,7 @@ apiVersion: infrastructure.cluster.x-k8s.io/v1beta2
 kind: AWSMachineTemplate
 metadata:
   name: capi-quickstart-md-0
-  namespace: flux-system
+  namespace: capa-system
 spec:
   template:
     spec:
@@ -74,6 +74,6 @@ apiVersion: bootstrap.cluster.x-k8s.io/v1beta2
 kind: EKSConfigTemplate
 metadata:
   name: capi-quickstart-md-0
-  namespace: flux-system
+  namespace: capa-system
 spec:
   template: {}
