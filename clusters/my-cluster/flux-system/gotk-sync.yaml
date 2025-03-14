@@ -11,7 +11,7 @@ spec:
     branch: main
   secretRef:
     name: flux-system
-  url: https://github.com/henrypham67/fluxcd-apps.git
+  url: ssh://git@github.com/henrypham67/fluxcd-apps
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
