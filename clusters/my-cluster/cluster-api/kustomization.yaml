@@ -1,0 +1,19 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+# 1. All namespaces first
+- cert-manager/ns.yaml
+- capi/ns.yaml
+- capa/ns.yaml
+
+# 2. Cert-manager components
+- cert-manager/jetstack.yaml
+- cert-manager/release.yaml
+
+# 3. CAPI operator components
+- capi/capi_operator.yaml
+- capi/release.yaml
+
+# 4. CAPA resources
+- capa/capi-quickstart.yaml
