@@ -3,6 +3,9 @@ kind: Cluster
 metadata:
   name: capi-quickstart
   namespace: capa-system
+  annotations:
+    # Add dependency on CAPI operator
+    kustomize.toolkit.fluxcd.io/dependsOn: capi-operator-system/capi-operator
 spec:
   clusterNetwork:
     pods:
