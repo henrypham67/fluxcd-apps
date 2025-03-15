@@ -5,3 +5,4 @@ resources:
 - cert-manager.yaml
 - capi-operator.yaml
 - capa/ns.yaml
+- capa/capi-quickstart.yaml
