@@ -6,3 +6,4 @@ metadata:
 spec:
   interval: 10m
   url: https://kubernetes-sigs.github.io/cluster-api-operator
+  suspend: true

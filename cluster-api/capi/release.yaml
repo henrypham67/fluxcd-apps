@@ -33,3 +33,6 @@ spec:
     configSecret:
       name: "credentials-secret"
       namespace: "capa-system"
+  dependsOn:
+    - name: cert-manager
+      namespace: cert-manager
