@@ -1,0 +1,54 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: capi-operator-system
+
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: capi-operator
+  namespace: capi-operator-system
+spec:
+  interval: 10m
+  url: https://kubernetes-sigs.github.io/cluster-api-operator
+
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: capi-operator
+  namespace: capi-operator-system
+spec:
+  interval: 10m
+  timeout: 90s
+  chart:
+    spec:
+      chart: cluster-api-operator
+      version: "*"
+      sourceRef:
+        kind: HelmRepository
+        name: capi-operator
+      interval: 5m
+  releaseName: capi-operator
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    remediation:
+      retries: 3
+  test:
+    enable: true
+  driftDetection:
+    mode: enabled
+  values:
+    infrastructure: "aws:v2.7.1"
+    cert-manager:
+      enabled: true
+    configSecret:
+      name: "credentials-secret"
+      namespace: "capa-system"
+  dependsOn:
+    - name: cert-manager
+      namespace: cert-manager
