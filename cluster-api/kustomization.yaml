@@ -4,7 +4,4 @@ kind: Kustomization
 resources:
 - cert-manager.yaml
 - capi-operator.yaml
-- capi/release.yaml
-
-# 4. CAPA resources
-- capa/capi-quickstart.yaml
+- capa/ns.yaml
