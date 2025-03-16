@@ -48,7 +48,7 @@ spec:
       enabled: true
     configSecret:
       name: "credentials-secret"
-      namespace: "capa-system"
+      namespace: "default"
   dependsOn:
     - name: cert-manager
       namespace: cert-manager
