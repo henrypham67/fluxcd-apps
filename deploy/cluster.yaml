@@ -45,15 +45,13 @@ kind: MachineDeployment
 metadata:
   name: team-green-md-0
   namespace: staging
+  machineset.cluster.x-k8s.io/skip-preflight-checks: ControlPlaneIsStable
 spec:
   clusterName: team-green
   replicas: 1
   selector:
     matchLabels: null
   template:
-    metadata:
-      annotations:
-        machineset.cluster.x-k8s.io/skip-preflight-checks: All
     spec:
       bootstrap:
         configRef:
