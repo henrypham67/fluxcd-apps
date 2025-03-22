@@ -51,6 +51,9 @@ spec:
   selector:
     matchLabels: null
   template:
+    metadata:
+      annotations:
+        machineset.cluster.x-k8s.io/skip-preflight-checks: All
     spec:
       bootstrap:
         configRef:
