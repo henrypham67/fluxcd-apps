@@ -7,7 +7,6 @@ spec:
   kubeConfig:
     secretRef:
       name: team-green-kubeconfig # Cluster API creates this for the matching Cluster
-      namespace: staging
   chart:
     spec:
       chart: prometheus
