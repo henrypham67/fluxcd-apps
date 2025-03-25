@@ -38,6 +38,11 @@ metadata:
 spec:
   region: us-west-2
   sshKeyName: default
+  # version: v1.32.0
+  addons:
+    - name: "kube-proxy"
+      version: "v1.32.0-eksbuild.2"
+      conflictResolution: "overwrite"
 ---
 apiVersion: cluster.x-k8s.io/v1beta1
 kind: MachineDeployment
