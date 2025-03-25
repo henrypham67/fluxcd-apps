@@ -28,9 +28,7 @@ kind: AWSManagedCluster
 metadata:
   name: team-green
   namespace: staging
-spec: 
-  bastion:
-    enabled: true
+spec: {}
 ---
 apiVersion: controlplane.cluster.x-k8s.io/v1beta2
 kind: AWSManagedControlPlane
@@ -38,6 +36,8 @@ metadata:
   name: team-green-control-plane
   namespace: staging
 spec:
+  bastion:
+    enabled: true
   region: us-west-2
   sshKeyName: default
   # version: v1.32.0
