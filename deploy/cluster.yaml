@@ -45,8 +45,6 @@ kind: MachineDeployment
 metadata:
   name: team-green-md-0
   namespace: staging
-  annotations:
-    machineset.cluster.x-k8s.io/skip-preflight-checks: ControlPlaneIsStable
 spec:
   clusterName: team-green
   replicas: 1
