@@ -10,8 +10,6 @@ metadata:
   name: team-green
   namespace: staging
 spec:
-  bastion:
-    enabled: true
   clusterNetwork:
     pods:
       cidrBlocks:
@@ -30,7 +28,9 @@ kind: AWSManagedCluster
 metadata:
   name: team-green
   namespace: staging
-spec: {}
+spec: 
+  bastion:
+    enabled: true
 ---
 apiVersion: controlplane.cluster.x-k8s.io/v1beta2
 kind: AWSManagedControlPlane
