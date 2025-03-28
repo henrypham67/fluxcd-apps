@@ -18,3 +18,7 @@ spec:
   dependsOn:
     - name: capi
       namespace: flux-system
+
+  kubeConfig:
+    secretRef:
+      name: team-green-kubeconfig
