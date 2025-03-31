@@ -33,11 +33,16 @@ spec:
   releaseName: capi-operator
   install:
     createNamespace: true
+    crds: CreateReplace
     remediation:
-      retries: 3
+      retries: -1
+      remediateLastFailure: true
   upgrade:
+    crds: CreateReplace
     remediation:
-      retries: 3
+      retries: -1
+      strategy: uninstall
+      remediateLastFailure: true
   test:
     enable: true
   driftDetection:
