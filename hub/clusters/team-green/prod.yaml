@@ -49,7 +49,7 @@ spec:
     namespace: flux-system
   kubeConfig:
     secretRef:
-      name: team-green-user-kubeconfig
+      name: team-green-kubeconfig
   postBuild:
     substitute:
       CLUSTER_NAME: production
