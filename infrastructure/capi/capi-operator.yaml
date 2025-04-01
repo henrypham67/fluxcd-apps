@@ -48,7 +48,7 @@ spec:
   driftDetection:
     mode: enabled
   values:
-    infrastructure: "aws:v2.7.1"
+    infrastructure: "aws:v2.8.2"
     cert-manager:
       enabled: true
     configSecret:
