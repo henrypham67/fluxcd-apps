@@ -2,7 +2,7 @@ apiVersion: cluster.x-k8s.io/v1beta1
 kind: Cluster
 metadata:
   name: team-green
-  namespace: staging
+  namespace: "${CLUSTER_NAME}"
 spec:
   clusterNetwork:
     pods:
@@ -21,14 +21,14 @@ apiVersion: infrastructure.cluster.x-k8s.io/v1beta2
 kind: AWSManagedCluster
 metadata:
   name: team-green
-  namespace: staging
+  namespace: "${CLUSTER_NAME}"
 spec: {}
 ---
 apiVersion: controlplane.cluster.x-k8s.io/v1beta2
 kind: AWSManagedControlPlane
 metadata:
   name: team-green-control-plane
-  namespace: staging
+  namespace: "${CLUSTER_NAME}"
 spec:
   bastion:
     enabled: true
@@ -44,7 +44,7 @@ apiVersion: cluster.x-k8s.io/v1beta1
 kind: MachineDeployment
 metadata:
   name: team-green-md-0
-  namespace: staging
+  namespace: "${CLUSTER_NAME}"
 spec:
   clusterName: team-green
   replicas: 1
@@ -68,7 +68,7 @@ apiVersion: infrastructure.cluster.x-k8s.io/v1beta2
 kind: AWSMachineTemplate
 metadata:
   name: team-green-md-0
-  namespace: staging
+  namespace: "${CLUSTER_NAME}"
 spec:
   template:
     spec:
@@ -80,6 +80,6 @@ apiVersion: bootstrap.cluster.x-k8s.io/v1beta2
 kind: EKSConfigTemplate
 metadata:
   name: team-green-md-0
-  namespace: staging
+  namespace: "${CLUSTER_NAME}"
 spec:
   template: {}

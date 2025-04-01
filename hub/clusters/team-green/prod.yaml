@@ -26,6 +26,9 @@ spec:
   dependsOn:
     - name: capi
       namespace: flux-system
+  postBuild:
+    substitute:
+      CLUSTER_NAME: production
 
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
@@ -62,3 +65,14 @@ spec:
         value: production
     target:
       namespace: staging
+  - target:
+      kind: HelmRelease
+    patch: |
+      - op: add
+        path: /spec/kubeConfig
+        value:
+          secretRef:
+            name: team-green-user-kubeconfig
+      - op: add
+        path: /spec/serviceAccountName
+        value: flux-restricted
