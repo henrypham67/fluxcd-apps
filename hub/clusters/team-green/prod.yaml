@@ -19,6 +19,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
+    namespace: flux-system
 
   wait: true
 
@@ -48,7 +49,7 @@ spec:
 
   dependsOn:
     - name: team-green-cluster
-      namespace: flux-system
+      namespace: production
 
   kubeConfig:
     secretRef:
