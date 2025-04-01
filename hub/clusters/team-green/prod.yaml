@@ -54,10 +54,6 @@ spec:
     - name: team-green-cluster
       namespace: production
 
-  kubeConfig:
-    secretRef:
-      name: team-green-kubeconfig
-
   patches:
   - patch: |-
       - op: replace
