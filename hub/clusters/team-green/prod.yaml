@@ -69,7 +69,7 @@ spec:
   timeout: 10m
   path: ./deploy/platform
   prune: true
-  targetNamespace: monitoring
+  targetNamespace: production
   sourceRef:
     kind: GitRepository
     name: flux-system
