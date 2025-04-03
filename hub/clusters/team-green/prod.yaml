@@ -54,6 +54,10 @@ spec:
     substitute:
       CLUSTER_NAME: production
 
+  dependsOn:
+    - name: team-green-cluster
+      namespace: production
+
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
@@ -76,6 +80,8 @@ spec:
 
   dependsOn:
     - name: team-green-cluster
+      namespace: production
+    - name: tenants
       namespace: production
 
   patches:
