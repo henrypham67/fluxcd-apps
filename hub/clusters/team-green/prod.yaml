@@ -15,7 +15,6 @@ spec:
   timeout: 10m
   path: ./deploy/infra
   prune: true
-  targetNamespace: production
   sourceRef:
     kind: GitRepository
     name: flux-system
