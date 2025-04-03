@@ -69,7 +69,7 @@ spec:
   timeout: 10m
   path: ./deploy/platform
   prune: true
-  targetNamespace: production
+  targetNamespace: monitoring
   sourceRef:
     kind: GitRepository
     name: flux-system
@@ -84,12 +84,6 @@ spec:
       namespace: production
 
   patches:
-  - patch: |-
-      - op: replace
-        path: /metadata/namespace
-        value: production
-    target:
-      namespace: staging
   - target:
       kind: HelmRelease
     patch: |
