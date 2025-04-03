@@ -13,6 +13,7 @@ metadata:
   name: kube-prometheus-stack
 spec:
   targetNamespace: monitoring
+  storageNamespace: monitoring
   interval: 10m
   timeout: 90s
   chart:
