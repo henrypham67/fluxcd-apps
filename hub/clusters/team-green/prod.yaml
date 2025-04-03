@@ -91,7 +91,7 @@ spec:
         path: /spec/kubeConfig
         value:
           secretRef:
-            name: team-green-user-kubeconfig
+            name: team-green-kubeconfig
       - op: add
         path: /spec/serviceAccountName
         value: flux-restricted
