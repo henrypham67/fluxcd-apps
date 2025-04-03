@@ -21,7 +21,7 @@ spec:
       chart: podinfo
       sourceRef:
         kind: HelmRepository
-        name: podinfo
+        name: prometheus-community
   interval: 50m
   driftDetection:
     mode: enabled
